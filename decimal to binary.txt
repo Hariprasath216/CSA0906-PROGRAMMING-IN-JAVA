@@ -1,0 +1,18 @@
+import java.util.*;
+class decimal
+{
+def decimal_to_binary(decimal):
+    binary = bin(decimal)
+    return binary[2:] 
+
+def decimal_to_octal(decimal):
+    octal = oct(decimal)
+    return octal[2:] 
+decimal_number = int(input("Enter a decimal number: "))
+
+binary_number = decimal_to_binary(decimal_number)
+octal_number = decimal_to_octal(decimal_number)
+
+
+print("Binary Number =", binary_number)
+print("Octal =", octal_number)
