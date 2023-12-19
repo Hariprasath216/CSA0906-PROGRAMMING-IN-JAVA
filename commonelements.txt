@@ -1,0 +1,71 @@
+import java.util.ArrayList;
+import java.util.HashSet;
+import java.util.List;
+import java.util.Set;
+
+public class CommonElements {
+    public static void main(String[] args) {
+        int[] arr1 = {1, 2, 3, 4};
+        int[] arr2 = {2, 4, 5, 6, 7};
+        printCommonElements(arr1, arr2);
+
+        // Test Cases
+        int[] arr3 = {1, 2, 3, 4};
+        int[] arr4 = {4, 5, 6, 7, 8};
+        printCommonElements(arr3, arr4);
+
+        String[] arr5 = {"a", "b", "c", "d"};
+        String[] arr6 = {"a", "b", "c", "d"};
+        printCommonElements(arr5, arr6);
+
+        int[] arr7 = {1, -2, 3, 4};
+        int[] arr8 = {1, -2, 5, 7, 8};
+        printCommonElements(arr7, arr8);
+
+        String[] arr9 = {"@", "#", "34", "45"};
+        String[] arr10 = {"@", "#", "%", "$"};
+        printCommonElements(arr9, arr10);
+
+        int[] arr11 = {45, 78, 56, 89};
+        int[] arr12 = {92, 34, 56, -78, -90};
+        printCommonElements(arr11, arr12);
+    }
+
+    public static void printCommonElements(int[] arr1, int[] arr2) {
+        Set<Integer> set1 = new HashSet<>();
+        Set<Integer> set2 = new HashSet<>();
+
+        for (int num : arr1) {
+            set1.add(num);
+        }
+
+        for (int num : arr2) {
+            set2.add(num);
+        }
+
+        set1.retainAll(set2);
+
+        List<Integer> commonElements = new ArrayList<>(set1);
+
+        System.out.println("Common elements: " + commonElements);
+    }
+
+    public static void printCommonElements(String[] arr1, String[] arr2) {
+        Set<String> set1 = new HashSet<>();
+        Set<String> set2 = new HashSet<>();
+
+        for (String str : arr1) {
+            set1.add(str);
+        }
+
+        for (String str : arr2) {
+            set2.add(str);
+        }
+
+        set1.retainAll(set2);
+
+        List<String> commonElements = new ArrayList<>(set1);
+
+        System.out.println("Common elements: " + commonElements);
+    }
+}

@@ -1,0 +1,123 @@
+import java.util.Scanner;
+
+interface Subject1 {
+    int getMarks1();
+}
+
+interface Subject2 {
+    int getMarks2();
+}
+
+interface Subject3 {
+    int getMarks3();
+}
+
+interface Subject4 {
+    int getMarks4();
+}
+
+interface Subject5 {
+    int getMarks5();
+}
+
+interface Subject6 {
+    int getMarks6();
+}
+
+class Student implements Subject1, Subject2, Subject3, Subject4, Subject5, Subject6 {
+    private int marks1, marks2, marks3, marks4, marks5, marks6;
+
+    public Student(int marks1, int marks2, int marks3, int marks4, int marks5, int marks6) {
+        this.marks1 = marks1;
+        this.marks2 = marks2;
+        this.marks3 = marks3;
+        this.marks4 = marks4;
+        this.marks5 = marks5;
+        this.marks6 = marks6;
+    }
+
+    @Override
+    public int getMarks1() {
+        return marks1;
+    }
+
+    @Override
+    public int getMarks2() {
+        return marks2;
+    }
+
+    @Override
+    public int getMarks3() {
+        return marks3;
+    }
+
+    @Override
+    public int getMarks4() {
+        return marks4;
+    }
+
+    @Override
+    public int getMarks5() {
+        return marks5;
+    }
+
+    @Override
+    public int getMarks6() {
+        return marks6;
+    }
+}
+
+class Result extends Student {
+    public Result(int marks1, int marks2, int marks3, int marks4, int marks5, int marks6) {
+        super(marks1, marks2, marks3, marks4, marks5, marks6);
+    }
+
+    public void calculateResult() {
+        int total = getMarks1() + getMarks2() + getMarks3() + getMarks4() + getMarks5() + getMarks6();
+        double aggregate = total / 6.0;
+
+        System.out.println("Total= " + total);
+        System.out.println("Aggregate = " + aggregate);
+
+        if (aggregate > 75) {
+            System.out.println("Class: DISTINCTION");
+        } else if (aggregate >= 60 && aggregate <= 75) {
+            System.out.println("Class: FIRST DIVISION");
+        } else if (aggregate >= 50 && aggregate < 60) {
+            System.out.println("Class: SECOND DIVISION");
+        } else if (aggregate >= 40 && aggregate < 50) {
+            System.out.println("Class: THIRD DIVISION");
+        } else {
+            System.out.println("Class: FAIL");
+        }
+    }
+}
+
+public class StudentGrades {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+
+        System.out.print("Enter the marks in python: ");
+        int marks1 = scanner.nextInt();
+
+        System.out.print("Enter the marks in c programming: ");
+        int marks2 = scanner.nextInt();
+
+        System.out.print("Enter the marks in Mathematics: ");
+        int marks3 = scanner.nextInt();
+
+        System.out.print("Enter the marks in Physics: ");
+        int marks4 = scanner.nextInt();
+
+        System.out.print("Enter the marks in Chemistry: ");
+        int marks5 = scanner.nextInt();
+
+        System.out.print("Enter the marks in Professional Ethics: ");
+        int marks6 = scanner.nextInt();
+
+        Result studentResult = new Result(marks1, marks2, marks3, marks4, marks5, marks6);
+        studentResult.calculateResult();
+
+        scanner.close();
+    }
+}

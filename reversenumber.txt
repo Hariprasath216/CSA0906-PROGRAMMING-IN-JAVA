@@ -1,0 +1,32 @@
+import java.util.Scanner;
+
+public class ReverseNumber {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+
+        // Get the number from the user
+        System.out.print("Enter a number: ");
+        long number = scanner.nextLong();
+
+        // Reverse the number
+        long reversedNumber = reverseNumber(number);
+
+        // Display the result
+        System.out.println("Reverse Number: " + reversedNumber);
+
+        scanner.close();
+    }
+
+    // Method to reverse a number using a loop
+    private static long reverseNumber(long num) {
+        long reversedNum = 0;
+
+        while (num != 0) {
+            long digit = num % 10;
+            reversedNum = reversedNum * 10 + digit;
+            num /= 10;
+        }
+
+        return reversedNum;
+    }
+}

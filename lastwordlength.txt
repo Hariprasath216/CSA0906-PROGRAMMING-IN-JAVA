@@ -1,0 +1,26 @@
+public class LastWordLength {
+    public static void main(String[] args) {
+        // Test Cases
+        System.out.println(lastWordLength("Maximal Substring Consisting"));
+        System.out.println(lastWordLength("lea@st one wor2d"));
+        System.out.println(lastWordLength("1254  98076"));
+        System.out.println(lastWordLength("& * (  ) % # $"));
+        System.out.println(lastWordLength("letters and spaces"));
+    }
+
+    public static int lastWordLength(String s) {
+        // Trim the string to remove leading and trailing spaces
+        s = s.trim();
+
+        int length = 0;
+        int i = s.length() - 1;
+
+        // Iterate from the end to find the last word
+        while (i >= 0 && s.charAt(i) != ' ') {
+            length++;
+            i--;
+        }
+
+        return length;
+    }
+}

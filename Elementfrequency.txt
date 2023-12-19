@@ -1,0 +1,29 @@
+import java.util.HashMap;
+import java.util.Map;
+
+public class ElementFrequency {
+    public static void main(String[] args) {
+        int[] array = {1, 2, 8, 3, 2, 2, 2, 5, 1};
+
+        // Find the frequency of each element in the array
+        Map<Integer, Integer> frequencyMap = findElementFrequency(array);
+
+        // Display the result
+        System.out.println("Element | Frequency");
+        System.out.println("--------------------------");
+        for (Map.Entry<Integer, Integer> entry : frequencyMap.entrySet()) {
+            System.out.println(entry.getKey() + "\t\t|\t\t" + entry.getValue());
+        }
+    }
+
+    // Method to find the frequency of each element in the array
+    private static Map<Integer, Integer> findElementFrequency(int[] array) {
+        Map<Integer, Integer> frequencyMap = new HashMap<>();
+
+        for (int element : array) {
+            frequencyMap.put(element, frequencyMap.getOrDefault(element, 0) + 1);
+        }
+
+        return frequencyMap;
+    }
+}
